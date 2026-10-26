@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:flutter/material.dart';
 
@@ -7,6 +7,8 @@ void main() {
 }
 
 class SuperApp extends StatelessWidget {
+  const SuperApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,13 +17,13 @@ class SuperApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Agendamento de Clinicas"),
-          backgroundColor: Color(0xFFF4C2C2),
+          backgroundColor: const Color(0xFFF4C2C2),
         ),
         body: Center(
           child: Container(
             height: double.infinity,
             width: double.infinity,
-            color: Color(0xFF4FA3D1),
+            color: const Color(0xFF4FA3D1),
             padding: const EdgeInsets.all(16),
             child: Wrap(
               alignment: WrapAlignment.center,
