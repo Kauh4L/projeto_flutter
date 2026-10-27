@@ -13,7 +13,7 @@ class MeuAplicativo extends StatelessWidget{
       theme: ThemeData(
         primaryColor: Colors.purpleAccent,
       ),
-      home: ClinicasPages(),
+      home: ClinicasPages(clinicas: null,),
     );
   }
 }
