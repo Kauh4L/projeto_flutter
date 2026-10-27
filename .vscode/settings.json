@@ -1,0 +1,28 @@
+{
+    "window.density.editorTabHeight": "compact",
+    "workbench.editor.autoLockGroups": {
+        "workbench.editor.chatDebug": true,
+        "default": true,
+        "workbench.editor.chatSession": true,
+        "workbench.editorinputs.searchEditorInput": true,
+        "agentSessionsWelcomePage": true,
+        "workbench.editor.browser": true,
+        "notebookOutputEditor": true,
+        "jupyter-notebook": true,
+        "repl": true,
+        "workbench.editors.gettingStartedInput": true,
+        "vscode.markdown.editor": true,
+        "imagePreview.previewEditor": true,
+        "vscode.audioPreview": true,
+        "mainThreadWebview-markdown.preview": true,
+        "workbench.input.interactive": true,
+        "decompiled.javaClass": true,
+        "java.formatterSettingsEditor": true,
+        "chatgpt.conversationEditor": true,
+        "jsProfileVisualizer.cpuprofile.table": true,
+        "vscode.videoPreview": true,
+        "jsProfileVisualizer.heapprofile.table": true,
+        "jsProfileVisualizer.heapsnapshot.table": true
+    },
+    "cmake.sourceDirectory": "/home/usuario/Documentos/flutter desenvolvimento de dispositivos moveis/projeto_flutter/linux"
+}
