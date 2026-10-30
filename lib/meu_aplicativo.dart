@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutter/pages/clinicas_page.dart';
+import 'package:projeto_flutter/estilo/style-page.dart';
 
 class MeuAplicativo extends StatelessWidget{
   const MeuAplicativo({Key? key}) : super(key:key);
@@ -13,7 +13,15 @@ class MeuAplicativo extends StatelessWidget{
       theme: ThemeData(
         primaryColor: Colors.purpleAccent,
       ),
-      home: ClinicasPages(clinicas: null,),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Consultar Clínica')),
+        body: const Column(
+          children: [
+            Text('Minhas Clínicas:'),
+            Sp(),
+          ],
+        ),
+      ),
     );
   }
 }
