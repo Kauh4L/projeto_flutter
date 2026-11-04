@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_flutter/estilo/style-page.dart';
+import 'package:projeto_flutter/pages/clinicas_page.dart';
 
 class MeuAplicativo extends StatelessWidget{
   const MeuAplicativo({Key? key}) : super(key:key);
@@ -41,6 +42,10 @@ Widget body() {
         ElevatedButton(
           onPressed: () {
             // Ação ao pressionar o botão
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ClinicasPages(),
+            );
           },
           child: Text('Consultar Clínicas'),
         ),
