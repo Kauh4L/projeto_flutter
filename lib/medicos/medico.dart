@@ -66,4 +66,11 @@ class Medico {
       telefone: '666666666',
       email: 'ana@email.com',
     ),
+     Medico(
+      nome: 'Carlos',
+      crm: '13579',
+      especialidade: 'Ortopedia',
+      telefone: '555555555',
+      email: 'carlos@email.com',
+    ),
 ];

@@ -79,19 +79,37 @@ class Body extends StatelessWidget {
       //criar lista e usa map() pra percorrer a lista medico e receber so especialidade
       final especialidadesDisponiveis = medicos.map
       ((medico) => medico.especialidade).toSet().toList();
-
-      return Wrap( //era row com axisAlignment: MainAxisAlignment.spaceEvenly, 
-        spacing: 10,
-        runSpacing: 15,
-        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: especialidadesDisponiveis.map((especialidade) { 
-          return CategoriaEspecialidade(
-          nome: especialidade,
-          icone: Icons.medical_services_outlined,
-        );
-      }).toList(),
+      return LayoutBuilder(
+        builder: (context, constraints){ 
+          final largura = (constraints.maxWidth - 10) / 2; //30 é a soma do espaçamento entre os elementos
+          return CustomWrap( 
+            children: especialidadesDisponiveis.map((especialidade) => CategoriaEspecialidade(
+              nome: especialidade,
+              icone: Icons.medical_services_outlined,
+            )).toList(),
+          );
+        }
       );
-  }
+    }
+}
+
+
+class CustomWrap extends StatelessWidget {
+  final List<Widget> children;
+
+  const CustomWrap({
+    super.key,
+    required this.children,
+  });
+
+@override
+Widget build(BuildContext context) {
+  return Wrap(
+    spacing: 10,
+    runSpacing: 15,
+    children: children,
+  );
+}
 }
 
 class CategoriaEspecialidade extends StatelessWidget {
@@ -103,14 +121,16 @@ class CategoriaEspecialidade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container( 
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+      
       decoration: BoxDecoration( 
         color: Colors.blue,
         borderRadius: BorderRadius.circular(30),
       ),
      
      child: Row( 
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [ 
           Icon(icone, color: Colors.white), 
           const SizedBox(width: 2),
