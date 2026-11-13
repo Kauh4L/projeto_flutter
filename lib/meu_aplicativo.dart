@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_flutter/clinicas/clinica.dart';
 import 'package:projeto_flutter/pages/clinicas_page.dart';
 import 'package:projeto_flutter/pages/home_page.dart';
+import 'package:projeto_flutter/pages/teste.dart' as teste;
 
 class MeuAplicativo extends StatelessWidget {
   const MeuAplicativo({super.key});
@@ -14,7 +15,7 @@ class MeuAplicativo extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 226, 179, 235),
       ),
-      home: const HomePage(),
+      home: const teste.HomePage(),
     );
   }
 }

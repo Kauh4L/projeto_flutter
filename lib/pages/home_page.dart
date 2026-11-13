@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_flutter/clinicas/clinica.dart';
+import 'package:projeto_flutter/medicos/medico.dart';
+import 'package:projeto_flutter/pages/clinicas_page.dart';
+import 'package:projeto_flutter/pages/medicos_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,21 +60,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Sem AppBar: o topo do protótipo é avatar + busca
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const _Topo(),
-              const SizedBox(height: 16),
-              _Categorias(categorias: _categorias),
-              const SizedBox(height: 16),
-              Expanded(child: _GradeClinicas(clinicas: _clinicas)),
-            ],
+      body: IndexedStack(
+        index: _abaSelecionada,
+        children: [
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const _Topo(),
+                  const SizedBox(height: 16),
+                  _Categorias(categorias: _categorias),
+                  const SizedBox(height: 16),
+                  Expanded(child: _GradeClinicas(clinicas: _clinicas)),
+                ],
+              ),
+            ),
           ),
-        ),
+          ClinicasPages(clinicas: _clinicas),
+          const MedicosPage(medicos: <Medico>[]),
+          const _PerfilPage(),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _abaSelecionada,
@@ -86,6 +96,18 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.person_outline), label: 'Perfil'),
         ],
       ),
+    );
+  }
+}
+
+class _PerfilPage extends StatelessWidget {
+  const _PerfilPage();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Perfil')),
+      body: const Center(child: Text('Perfil do usuário')),
     );
   }
 }

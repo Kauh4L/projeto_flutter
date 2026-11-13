@@ -1,5 +1,20 @@
 import 'package:projeto_flutter/clinicas/clinica.dart';
 
+const List<String> especialidades = [
+  'Cardiologia',
+  'Dermatologia',
+  'Endocrinologia',
+  'Gastroenterologia',
+  'Ginecologia',
+  'Neurologia',
+  'Oftalmologia',
+  'Ortopedia',
+  'Otorrinolaringologia',
+  'Pediatria',
+  'Psiquiatria',
+  'Urologia',
+];
+
 class Medico {
   final String nome;
   final String crm;
@@ -8,6 +23,7 @@ class Medico {
   final String email;
   final Clinica? clinica;
 
+  
   Medico({
     required this.nome,
     required this.crm,
@@ -16,4 +32,7 @@ class Medico {
     required this.email,
     this.clinica,
   });
+
+
+
 }
