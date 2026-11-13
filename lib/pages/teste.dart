@@ -20,7 +20,11 @@ class _HomePageState extends State<HomePage> {
       preferredSize: const Size.fromHeight(56),
       child: const CustomAppBar(title: 'Consultar Clínica'),
       ),*/
-      body: Body(),
+      
+      body: Container( 
+        margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        child: Body(medicos: medicos),
+      ),
     );
   }
 }
@@ -67,21 +71,25 @@ Size get preferredSize => const Size.fromHeight(56);
 }
 
 class Body extends StatelessWidget {
-    const Body({super.key});
+    final List<Medico> medicos;
+    const Body({super.key, required this.medicos});
 
     @override
     Widget build(BuildContext context) {
+      //criar lista e usa map() pra percorrer a lista medico e receber so especialidade
+      final especialidadesDisponiveis = medicos.map
+      ((medico) => medico.especialidade).toSet().toList();
+
       return Wrap( //era row com axisAlignment: MainAxisAlignment.spaceEvenly, 
-        spacing: 20,
+        spacing: 10,
         runSpacing: 15,
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const[ 
-           CategoriaEspecialidade(nome: 'Cardiologia', icone: Icons.favorite),
-           CategoriaEspecialidade(nome: 'Dermatologia', icone: Icons.spa),
-           CategoriaEspecialidade(nome: 'Neurologia', icone: Icons.psychology),
-           CategoriaEspecialidade(nome: 'Otorrinolaringologia', icone: Icons.hearing),
-           CategoriaEspecialidade(nome: 'Pediatria', icone: Icons.child_care),
-        ],
+        children: especialidadesDisponiveis.map((especialidade) { 
+          return CategoriaEspecialidade(
+          nome: especialidade,
+          icone: Icons.medical_services_outlined,
+        );
+      }).toList(),
       );
   }
 }
@@ -95,19 +103,20 @@ class CategoriaEspecialidade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container( 
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration( 
         color: Colors.blue,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(30),
       ),
+     
      child: Row( 
         mainAxisSize: MainAxisSize.min,
         children: [ 
           Icon(icone, color: Colors.white), 
-          const SizedBox(width: 5),
+          const SizedBox(width: 2),
           Text( 
             nome, 
-            style: const TextStyle(color: Colors.white, fontSize: 16),
+            style: const TextStyle(color: Colors.white, fontSize: 8),
           ),
         ],
      ), 

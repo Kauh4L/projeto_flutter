@@ -23,6 +23,7 @@ class Medico {
   final String email;
   final Clinica? clinica;
 
+ 
   
   Medico({
     required this.nome,
@@ -33,6 +34,36 @@ class Medico {
     this.clinica,
   });
 
-
-
 }
+
+ // globaL medicos vao ser colocados em uma lista, para que seja possivel exibir na tela de medicos
+  final List<Medico> medicos = [
+      Medico(
+      nome: 'João',
+      crm: '12345',
+      especialidade: 'Cardiologia',
+      telefone: '999999999',
+      email: 'joao@email.com',
+    ),
+      Medico(
+      nome: 'Maria',
+      crm: '67890',
+      especialidade: 'Dermatologia',
+      telefone: '888888888',
+      email: 'ma@ads.com',
+    ), 
+      Medico(
+      nome: 'Pedro',
+      crm: '54321',
+      especialidade: 'Neurologia',
+      telefone: '777777777',
+      email: 'pedro@email.com',
+    ), 
+      Medico(
+      nome: 'Ana',
+      crm: '09876',
+      especialidade: 'Pediatria',
+      telefone: '666666666',
+      email: 'ana@email.com',
+    ),
+];
