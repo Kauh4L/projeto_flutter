@@ -102,16 +102,18 @@ class CustomWrap extends StatelessWidget {
     required this.children,
   });
 
-@override
-Widget build(BuildContext context) {
-  return Wrap(
-    spacing: 10,
-    runSpacing: 15,
-    children: children,
-  );
-}
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      alignment: WrapAlignment.start,
+      children: children,
+    );
+  }
 }
 
+/*
 class CategoriaEspecialidade extends StatelessWidget {
   final String nome;
   final IconData icone;
@@ -140,6 +142,48 @@ class CategoriaEspecialidade extends StatelessWidget {
           ),
         ],
      ), 
+    );
+  }
+}*/
+
+
+
+class CategoriaEspecialidade extends StatelessWidget {
+  final String nome;
+  final IconData icone;
+
+  const CategoriaEspecialidade({
+    super.key,
+    required this.nome,
+    required this.icone,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 8,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icone, color: Colors.white),
+          const SizedBox(width: 5),
+          Text(
+            nome,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
