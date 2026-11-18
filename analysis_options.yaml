@@ -5,6 +5,7 @@ analyzer:
     - ios/**
     - web/**
     - linux/**
+    - windows/**
 
 version: 1.0
 

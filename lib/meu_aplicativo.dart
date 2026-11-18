@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_flutter/clinicas/clinica.dart';
+import 'package:projeto_flutter/estilo/style-page.dart';
 import 'package:projeto_flutter/pages/clinicas_page.dart';
-import 'package:projeto_flutter/pages/home_page.dart';
-import 'package:projeto_flutter/pages/teste.dart' as teste;
+import 'package:projeto_flutter/pages/pag_principal.dart';
 
 class MeuAplicativo extends StatelessWidget {
   const MeuAplicativo({super.key});
@@ -12,10 +12,8 @@ class MeuAplicativo extends StatelessWidget {
     return MaterialApp(
       title: 'Consultar Clinica',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 226, 179, 235),
-      ),
-      home: const teste.HomePage(),
+      theme: AppTheme.light,
+      home: const HomePage(),
     );
   }
 }
