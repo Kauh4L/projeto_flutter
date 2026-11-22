@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_flutter/estilo/style-page.dart';
-import 'package:projeto_flutter/medicos/medico.dart';
-import 'package:projeto_flutter/pages/funcoes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,21 +32,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title), // title = consulta clinicas
+      title: Text(title),
       actions: [
-        //vou adicionar botão
         IconButton(
-          //botao pesquisa com icone
           onPressed: () {
-            print('pesquisa clicada');
+            debugPrint('pesquisa clicada');
           },
           icon: const Icon(Icons.search),
         ),
-
-        //botão de perfil
         IconButton(
           onPressed: () {
-            print('perfil clicado');
+            debugPrint('perfil clicado');
           },
           icon: const Icon(Icons.person),
         ),
@@ -67,9 +61,33 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return CustomWrap(children: Funcoes.Especialidades());
-    });
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return const SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomWrap(
+                children: [
+                  CategoriaEspecialidade(
+                    nome: 'Cardiologia',
+                    icone: Icons.favorite,
+                  ),
+                  CategoriaEspecialidade(
+                    nome: 'Oftalmologia',
+                    icone: Icons.visibility,
+                  ),
+                  CategoriaEspecialidade(
+                    nome: 'Ortopedia',
+                    icone: Icons.accessibility_new,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -109,17 +127,15 @@ class CategoriaEspecialidade extends StatelessWidget {
         horizontal: 15,
         vertical: 8,
       ),
-      
       decoration: BoxDecoration(
         color: AppTheme.primary,
         borderRadius: BorderRadius.circular(AppTheme.categoryRadius),
       ),
-      
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icone, color: AppTheme.onPrimary),
+          Icon(icone, color: AppTheme.onPrimary, size: 18),
           const SizedBox(width: 5),
           Text(
             nome,
@@ -128,8 +144,6 @@ class CategoriaEspecialidade extends StatelessWidget {
               fontSize: 12,
             ),
           ),
-          elevation: AppTheme.elevation;
-          BoxShadow: 
         ],
       ),
     );

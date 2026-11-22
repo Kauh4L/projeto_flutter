@@ -24,5 +24,6 @@
         "jsProfileVisualizer.heapprofile.table": true,
         "jsProfileVisualizer.heapsnapshot.table": true
     },
-    "cmake.sourceDirectory": "/home/usuario/Documentos/flutter desenvolvimento de dispositivos moveis/projeto_flutter/linux"
+    "cmake.sourceDirectory": "/home/usuario/Documentos/flutter desenvolvimento de dispositivos moveis/projeto_flutter/linux",
+    "java.search.scope": "all"
 }

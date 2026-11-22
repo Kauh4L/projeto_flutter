@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutter/main.dart';
 import 'package:projeto_flutter/medicos/medico.dart';
 import 'package:projeto_flutter/pages/home_page.dart';
 
